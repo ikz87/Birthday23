@@ -17,3 +17,7 @@ func _process(delta):
 func _pressed():
 	for topping in pizza_toppings.get_children():
 		topping.delete_topping()
+		for key in minigame_world.toppings_dict:
+			minigame_world.toppings_dict[key] = 0
+		
+		print(minigame_world.toppings_dict)
