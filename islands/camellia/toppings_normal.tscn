@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3lknn31tlnem"]
+
+[ext_resource type="Texture2D" uid="uid://c7a844i4hjcn" path="res://islands/camellia/2d_assets/container_pepperoni.png" id="1_s30l2"]
+[ext_resource type="Script" path="res://islands/camellia/topping_container.gd" id="2_dq5oa"]
+[ext_resource type="Texture2D" uid="uid://rjmwb20pv478" path="res://islands/camellia/2d_assets/container_onions.png" id="3_kdb28"]
+[ext_resource type="Texture2D" uid="uid://1lg1fmvy2yyw" path="res://islands/camellia/2d_assets/container_olives.png" id="4_sn0qk"]
+[ext_resource type="Texture2D" uid="uid://k5ce76f0q4rk" path="res://islands/camellia/2d_assets/container_mushrooms.png" id="5_y3gpc"]
+[ext_resource type="Texture2D" uid="uid://ckngl0kmaml5p" path="res://islands/camellia/2d_assets/container_pineapple.png" id="6_umq8l"]
+[ext_resource type="Texture2D" uid="uid://b732aakcsrb6v" path="res://islands/camellia/2d_assets/container_bacon.png" id="7_8m3ku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84pn3"]
+radius = 52.0384
+
+[node name="ToppingsNormal" type="Node2D"]
+
+[node name="PepperoniContainer" type="Sprite2D" parent="."]
+texture = ExtResource("1_s30l2")
+
+[node name="Area2D" type="Area2D" parent="PepperoniContainer"]
+script = ExtResource("2_dq5oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PepperoniContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")
+
+[node name="OnionsContainer" type="Sprite2D" parent="."]
+position = Vector2(125, 125)
+texture = ExtResource("3_kdb28")
+
+[node name="Area2D" type="Area2D" parent="OnionsContainer"]
+script = ExtResource("2_dq5oa")
+topping_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnionsContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")
+
+[node name="OlivesContainer" type="Sprite2D" parent="."]
+position = Vector2(250, 0)
+texture = ExtResource("4_sn0qk")
+
+[node name="Area2D" type="Area2D" parent="OlivesContainer"]
+script = ExtResource("2_dq5oa")
+topping_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OlivesContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")
+
+[node name="MushroomsContainer" type="Sprite2D" parent="."]
+position = Vector2(375, 125)
+texture = ExtResource("5_y3gpc")
+
+[node name="Area2D" type="Area2D" parent="MushroomsContainer"]
+script = ExtResource("2_dq5oa")
+topping_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomsContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")
+
+[node name="PineappleContainer" type="Sprite2D" parent="."]
+position = Vector2(500, 0)
+texture = ExtResource("6_umq8l")
+
+[node name="Area2D" type="Area2D" parent="PineappleContainer"]
+script = ExtResource("2_dq5oa")
+topping_type = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PineappleContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")
+
+[node name="BaconContainer" type="Sprite2D" parent="."]
+position = Vector2(625, 125)
+texture = ExtResource("7_8m3ku")
+
+[node name="Area2D" type="Area2D" parent="BaconContainer"]
+script = ExtResource("2_dq5oa")
+topping_type = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaconContainer/Area2D"]
+shape = SubResource("CircleShape2D_84pn3")

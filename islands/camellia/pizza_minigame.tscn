@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://clpm33p1ol4xl"]
+
+[ext_resource type="Script" path="res://islands/camellia/pizza_minigame.gd" id="1_drd75"]
+[ext_resource type="Texture2D" uid="uid://bw60ufydq3g6d" path="res://islands/camellia/2d_assets/pizza_base.png" id="1_fvnmy"]
+[ext_resource type="Texture2D" uid="uid://fyv1poucdvow" path="res://islands/camellia/2d_assets/instructions_bg.png" id="2_2y7ns"]
+[ext_resource type="Texture2D" uid="uid://d2x0fpgsjjhfd" path="res://islands/camellia/2d_assets/background.png" id="2_500rf"]
+[ext_resource type="Texture2D" uid="uid://d4l7i5hr5dkt5" path="res://islands/camellia/2d_assets/instructions1.png" id="2_m7twq"]
+[ext_resource type="Texture2D" uid="uid://dnnket6bk7lvm" path="res://islands/camellia/2d_assets/toppings_bg.png" id="6_2ppo3"]
+[ext_resource type="Texture2D" uid="uid://cqo87vr1gbw8n" path="res://islands/camellia/2d_assets/button_cook_normal.png" id="6_20fgb"]
+[ext_resource type="Texture2D" uid="uid://boiktpg455yjj" path="res://islands/camellia/2d_assets/button_cook_pressed.png" id="7_j3aqe"]
+[ext_resource type="PackedScene" uid="uid://c3lknn31tlnem" path="res://islands/camellia/toppings_normal.tscn" id="7_qt8cn"]
+[ext_resource type="Texture2D" uid="uid://byat3byj7wk2g" path="res://islands/camellia/2d_assets/button_cook_hover.png" id="8_rxnv4"]
+[ext_resource type="Texture2D" uid="uid://g0f6qyp1pfp0" path="res://islands/camellia/2d_assets/button_back_normal.png" id="11_q0ohm"]
+[ext_resource type="Texture2D" uid="uid://bl2lv6n2ohgql" path="res://islands/camellia/2d_assets/button_back_pressed.png" id="12_ujyw7"]
+[ext_resource type="Texture2D" uid="uid://dq5lawn6ghcqq" path="res://islands/camellia/2d_assets/button_reset_normal.png" id="13_n81hj"]
+[ext_resource type="Texture2D" uid="uid://ljm38ggvny15" path="res://islands/camellia/2d_assets/button_reset_pressed.png" id="14_b08mt"]
+[ext_resource type="Texture2D" uid="uid://biroog75aoeov" path="res://islands/camellia/2d_assets/button_reset_hover.png" id="15_s8s0l"]
+[ext_resource type="Script" path="res://islands/camellia/reset_button.gd" id="16_lfkoe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0jds"]
+radius = 285.012
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_drd75")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_500rf")
+
+[node name="PizzaGroup" type="CanvasGroup" parent="."]
+position = Vector2(960, 540)
+
+[node name="PizzaBase" type="Sprite2D" parent="PizzaGroup"]
+texture = ExtResource("1_fvnmy")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="PizzaGroup/PizzaBase"]
+position = Vector2(-256, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaGroup/PizzaBase/Area2D"]
+shape = SubResource("CircleShape2D_h0jds")
+
+[node name="PizzaToppings" type="Node2D" parent="PizzaGroup"]
+metadata/_edit_lock_ = true
+
+[node name="SidePane" type="Node2D" parent="."]
+
+[node name="InstructionsBG" type="Sprite2D" parent="SidePane"]
+position = Vector2(960, 540)
+texture = ExtResource("2_2y7ns")
+
+[node name="Instructions" type="Sprite2D" parent="SidePane"]
+position = Vector2(960, 540)
+texture = ExtResource("2_m7twq")
+
+[node name="CookButton" type="TextureButton" parent="SidePane"]
+offset_left = 1470.0
+offset_top = 928.0
+offset_right = 1870.0
+offset_bottom = 1031.0
+texture_normal = ExtResource("6_20fgb")
+texture_pressed = ExtResource("7_j3aqe")
+texture_hover = ExtResource("8_rxnv4")
+
+[node name="ToppingsGroup" type="Node2D" parent="SidePane"]
+
+[node name="ToppingsBG" type="Sprite2D" parent="SidePane/ToppingsGroup"]
+position = Vector2(960, 540)
+texture = ExtResource("6_2ppo3")
+
+[node name="ToppingsNormal" parent="SidePane" instance=ExtResource("7_qt8cn")]
+position = Vector2(1206, 74)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 223.0
+offset_bottom = 182.0
+texture_normal = ExtResource("11_q0ohm")
+texture_pressed = ExtResource("12_ujyw7")
+texture_hover = ExtResource("8_rxnv4")
+
+[node name="ResetButton" type="TextureButton" parent="."]
+offset_top = 928.0
+offset_right = 389.0
+offset_bottom = 1081.0
+texture_normal = ExtResource("13_n81hj")
+texture_pressed = ExtResource("14_b08mt")
+texture_hover = ExtResource("15_s8s0l")
+script = ExtResource("16_lfkoe")
